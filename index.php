@@ -38,9 +38,9 @@
         ],
 
     ];
+
+     $keys_array = array_keys($hotels[0]);
     
-     foreach($hotels as $hotel) { 
-       } 
 
 ?>
 
@@ -59,25 +59,25 @@
 <body>
     <div class="container">
         <table class="table">
-      <thead>
-        <tr>
-            <th scope="col">#</th>
-            <?php foreach($hotel as $key => $detail) : ?>
-              <th scope="col"> <?= $key ?> </th>
+          <thead>
+            <tr>
+                <th scope="col">#</th>
+                <?php foreach($keys_array as $key ) : ?>
+                  <th scope="col"> <?= $key ?> </th>
+                <?php endforeach ?>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach($hotels as $key => $hotel) : ?>
+            <tr>
+              <th scope="row"><?= $key + 1 ?></th>
+            <?php foreach($hotel as $detail) : ?>
+              <td><?= $detail ?></td>
             <?php endforeach ?>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach($hotels as $key => $hotel) : ?>
-        <tr>
-          <th scope="row"><?= $key + 1 ?></th>
-        <?php foreach($hotel as $detail) : ?>
-          <td><?= $detail ?></td>
-        <?php endforeach ?>
-        </tr>
-        <?php endforeach ?>
-      </tbody>
-    </table>
-    </div>
+            </tr>
+            <?php endforeach ?>
+          </tbody>
+       </table>
+   </div>
 </body>
 </html>
